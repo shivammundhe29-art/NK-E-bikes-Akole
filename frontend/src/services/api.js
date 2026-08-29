@@ -103,17 +103,17 @@ export const INITIAL_BIKES = [
 ];
 
 export const INITIAL_SHOWROOM = {
-  name: "NK E-BIKE, Akole",
-  address: "K.G. Road, Nawalewadi",
+  name: "NK E-BIKES (Hase Brother's)",
+  address: "Near Agasti College",
   city: "Akole",
-  district: "Ahmednagar",
+  district: "Ahilyanagar",
   state: "Maharashtra",
   pincode: "422601",
-  phone1: "1234567890",
-  phone2: "+91 9270441850",
+  phone1: "7875493982",
+  phone2: "9975983387",
   email: "info@nkebike.com",
   timings: "Mon - Sun : 9:00 AM - 8:00 PM",
-  map_link: "https://maps.google.com/?q=Akole+Maharashtra+422601"
+  map_link: "https://maps.google.com/?q=Agasti+College+Akole+Maharashtra"
 };
 
 export const INITIAL_NOTIFICATIONS = [

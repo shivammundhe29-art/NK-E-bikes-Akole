@@ -46,6 +46,20 @@ export const ServiceScreen = ({ isMobileView = false }) => {
         preferred_date: preferredDate
       });
 
+      // Format WhatsApp message
+      const waText = encodeURIComponent(
+        `🔧 *NEW SERVICE BOOKING* 🔧\n\n` +
+        `🛵 *Bike:* ${bikeName}\n` +
+        `🔢 *Vehicle No:* ${vehicleNumber.toUpperCase()}\n` +
+        `🛠️ *Service Type:* ${serviceType}\n` +
+        `📝 *Details:* ${problemDescription}\n` +
+        `📅 *Preferred Date:* ${preferredDate}\n\n` +
+        `Hello Hase Brother's (NK E-Bikes Akole), please confirm my service appointment!`
+      );
+
+      // Open WhatsApp directly for 7875493982
+      window.open(`https://wa.me/917875493982?text=${waText}`, '_blank');
+
       try {
         confetti({
           particleCount: 90,

@@ -49,6 +49,21 @@ export const TestRideScreen = ({ isMobileView = false }) => {
         address: address
       });
 
+      // Format WhatsApp message
+      const waText = encodeURIComponent(
+        `⚡ *NEW TEST RIDE BOOKING* ⚡\n\n` +
+        `🛵 *Bike Model:* ${bikeName}\n` +
+        `📅 *Date:* ${bookingDate}\n` +
+        `⏰ *Time Slot:* ${timeSlot}\n` +
+        `👤 *Customer Name:* ${fullName}\n` +
+        `📱 *Mobile:* ${mobileNumber}\n` +
+        `📍 *Address:* ${address}\n\n` +
+        `Hello Hase Brother's (NK E-Bikes Akole), please confirm my test ride appointment!`
+      );
+
+      // Open WhatsApp directly for primary contact number 7875493982
+      window.open(`https://wa.me/917875493982?text=${waText}`, '_blank');
+
       // Confetti burst
       try {
         confetti({
@@ -138,14 +153,29 @@ export const TestRideScreen = ({ isMobileView = false }) => {
               fontSize: '13px'
             }}>
               <div style={{ color: '#64748B', marginBottom: '4px' }}>Showroom Venue:</div>
-              <div style={{ fontWeight: '700', color: '#0F172A' }}>NK E-BIKE, K.G. Road, Nawalewadi, Akole</div>
+              <div style={{ fontWeight: '700', color: '#0F172A' }}>NK E-BIKES (Hase Brother's), Near Agasti College, Akole</div>
               <div style={{ color: '#00A853', fontWeight: '600', marginTop: '6px' }}>Status: Pending Confirmation</div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <button onClick={() => navigateTo('bookings')} className="btn-electric" style={{ width: '100%' }}>
-                View in My Bookings
-              </button>
+              <a
+                href={`https://wa.me/917875493982?text=${encodeURIComponent(`⚡ *TEST RIDE BOOKING* ⚡\n🛵 Bike: ${bikeName}\n📅 Date: ${bookingDate}\n⏰ Time: ${timeSlot}\n👤 Name: ${fullName}\n📱 Mobile: ${mobileNumber}\n📍 Address: ${address}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-electric"
+                style={{ width: '100%', textDecoration: 'none', background: '#25D366' }}
+              >
+                💬 Send Message to 7875493982
+              </a>
+              <a
+                href={`https://wa.me/919975983387?text=${encodeURIComponent(`⚡ *TEST RIDE BOOKING* ⚡\n🛵 Bike: ${bikeName}\n📅 Date: ${bookingDate}\n⏰ Time: ${timeSlot}\n👤 Name: ${fullName}\n📱 Mobile: ${mobileNumber}\n📍 Address: ${address}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-electric"
+                style={{ width: '100%', textDecoration: 'none', background: '#25D366' }}
+              >
+                💬 Send Message to 9975983387
+              </a>
               <button onClick={() => setIsSubmitted(false)} className="btn-outline-electric" style={{ width: '100%' }}>
                 Book Another Ride
               </button>

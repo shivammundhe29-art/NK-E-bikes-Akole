@@ -10,7 +10,8 @@ export const ShowroomScreen = ({ isMobileView = false }) => {
   };
 
   const handleCall = () => {
-    window.location.href = `tel:${showroomInfo?.phone2 || '+919270441850'}`;
+    const number = showroomInfo?.phone2?.replace(/\D/g, '') || '919270441850';
+    window.open(`https://wa.me/${number}`, '_blank');
   };
 
   return (
@@ -98,7 +99,7 @@ export const ShowroomScreen = ({ isMobileView = false }) => {
           </div>
         </div>
 
-        {/* Showroom Information Card matching Screen 11 */}
+        {/* Showroom Information Card */}
         <div style={{
           background: '#F8FAFC',
           borderRadius: '20px',
@@ -107,23 +108,26 @@ export const ShowroomScreen = ({ isMobileView = false }) => {
           marginBottom: '24px'
         }}>
           <h3 style={{ fontSize: '18px', fontWeight: '900', color: '#0F172A', marginBottom: '8px' }}>
-            {showroomInfo?.name || "NK E-BIKE, Akole"}
+            NK E-BIKES (Hase Brother's)
           </h3>
 
           {/* Address */}
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '14px' }}>
             <MapPin size={18} color="#00D26A" style={{ flexShrink: 0, marginTop: '2px' }} />
             <p style={{ fontSize: '13px', color: '#475569', margin: 0, lineHeight: '1.4' }}>
-              {showroomInfo?.address || "K.G. Road, Nawalewadi"},<br />
-              {showroomInfo?.city || "Akole"}, {showroomInfo?.state || "Maharashtra"} - {showroomInfo?.pincode || "422601"}
+              Near Agasti College, Akole,<br />
+              Maharashtra - 422601
             </p>
           </div>
 
           {/* Phone */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-            <Phone size={18} color="#00D26A" style={{ flexShrink: 0 }} />
-            <div style={{ fontSize: '13px', color: '#334155', fontWeight: '600' }}>
-              {showroomInfo?.phone1 || "1234567890"} / {showroomInfo?.phone2 || "+91 9270441850"}
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '12px' }}>
+            <Phone size={18} color="#00D26A" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <div>
+              <div style={{ fontSize: '12px', color: '#64748B', fontWeight: '600' }}>Hase Brother's Contact:</div>
+              <div style={{ fontSize: '14px', color: '#0F172A', fontWeight: '800' }}>
+                7875493982 / 9975983387
+              </div>
             </div>
           </div>
 
@@ -131,7 +135,7 @@ export const ShowroomScreen = ({ isMobileView = false }) => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
             <Mail size={18} color="#00D26A" style={{ flexShrink: 0 }} />
             <div style={{ fontSize: '13px', color: '#334155', fontWeight: '600' }}>
-              {showroomInfo?.email || "info@nkebike.com"}
+              info@nkebike.com
             </div>
           </div>
 
@@ -139,12 +143,12 @@ export const ShowroomScreen = ({ isMobileView = false }) => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Clock size={18} color="#00D26A" style={{ flexShrink: 0 }} />
             <div style={{ fontSize: '13px', color: '#334155', fontWeight: '600' }}>
-              {showroomInfo?.timings || "Mon - Sun : 9:00 AM - 8:00 PM"}
+              Mon - Sun : 9:00 AM - 8:00 PM
             </div>
           </div>
         </div>
 
-        {/* Action Buttons matching Screen 11 */}
+        {/* Action Buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {/* Get Directions Button */}
           <button
@@ -155,27 +159,93 @@ export const ShowroomScreen = ({ isMobileView = false }) => {
             <Navigation size={18} /> Get Directions
           </button>
 
-          {/* Call Now Button */}
-          <button
-            onClick={handleCall}
-            style={{
-              width: '100%',
-              padding: '14px',
-              borderRadius: '30px',
-              border: '1.5px solid #00D26A',
-              background: '#FFFFFF',
-              color: '#00A853',
-              fontSize: '15px',
-              fontWeight: '800',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px'
-            }}
-          >
-            <PhoneCall size={18} /> Call Now
-          </button>
+          {/* Direct Call Options */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <a
+              href="tel:+917875493982"
+              style={{
+                padding: '12px',
+                borderRadius: '30px',
+                border: '1.5px solid #00D26A',
+                background: '#FFFFFF',
+                color: '#00A853',
+                fontSize: '13px',
+                fontWeight: '800',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px'
+              }}
+            >
+              📞 Call 7875493982
+            </a>
+            <a
+              href="tel:+919975983387"
+              style={{
+                padding: '12px',
+                borderRadius: '30px',
+                border: '1.5px solid #00D26A',
+                background: '#FFFFFF',
+                color: '#00A853',
+                fontSize: '13px',
+                fontWeight: '800',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px'
+              }}
+            >
+              📞 Call 9975983387
+            </a>
+          </div>
+
+          {/* Direct WhatsApp Options */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <a
+              href="https://wa.me/917875493982"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: '12px',
+                borderRadius: '30px',
+                border: '1.5px solid #25D366',
+                background: 'rgba(37, 211, 102, 0.1)',
+                color: '#25D366',
+                fontSize: '13px',
+                fontWeight: '800',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px'
+              }}
+            >
+              💬 WhatsApp 1
+            </a>
+            <a
+              href="https://wa.me/919975983387"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: '12px',
+                borderRadius: '30px',
+                border: '1.5px solid #25D366',
+                background: 'rgba(37, 211, 102, 0.1)',
+                color: '#25D366',
+                fontSize: '13px',
+                fontWeight: '800',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px'
+              }}
+            >
+              💬 WhatsApp 2
+            </a>
+          </div>
         </div>
       </div>
     </div>

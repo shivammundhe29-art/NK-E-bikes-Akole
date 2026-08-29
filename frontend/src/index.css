@@ -84,6 +84,7 @@ h1, h2, h3, h4, h5, h6, .brand-title {
   border-radius: var(--radius-full);
   padding: 12px 24px;
   font-size: 15px;
+  white-space: nowrap;
   transition: all 0.25s ease;
   box-shadow: 0 4px 15px rgba(0, 210, 106, 0.35);
   display: inline-flex;
@@ -110,6 +111,7 @@ h1, h2, h3, h4, h5, h6, .brand-title {
   padding: 11px 22px;
   font-weight: 600;
   font-size: 14px;
+  white-space: nowrap;
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;

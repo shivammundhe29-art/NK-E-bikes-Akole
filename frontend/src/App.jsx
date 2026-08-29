@@ -1,8 +1,6 @@
 import React from 'react';
 import { useApp } from './context/AppContext';
 import { useAuth } from './context/AuthContext';
-import { ModeSwitcher } from './components/ModeSwitcher';
-import { MobileFrame } from './components/MobileFrame';
 import { DrawerMenu } from './components/DrawerMenu';
 import { Toast } from './components/Toast';
 
@@ -19,6 +17,7 @@ import { BookingsScreen } from './screens/BookingsScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { ShowroomScreen } from './screens/ShowroomScreen';
 import { NotificationScreen } from './screens/NotificationScreen';
+import { PostersScreen } from './screens/PostersScreen';
 
 // Full Web Components
 import { Zap, Phone, MapPin, Mail, Clock, Heart, Bell, User, Calendar, Wrench, Shield, Leaf, IndianRupee, Menu, ChevronRight } from 'lucide-react';
@@ -93,276 +92,16 @@ export function App() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#090D14', color: '#F8FAFC', display: 'flex', flexDirection: 'column' }}>
-      {/* Top Demo Bar / Mode Switcher */}
-      <ModeSwitcher />
-
       {/* Floating Global Toast */}
       <Toast />
 
       {/* Slide Drawer (Active when opened) */}
       <DrawerMenu />
 
-      {/* VIEW MODE 1: 13 SCREENS SHOWCASE GRID (Direct Match with Client Demo Screenshot) */}
-      {viewMode === 'all_screens' && (
-        <div style={{ padding: '30px 20px', background: '#090D14', flex: 1 }}>
-          {/* Header Banner matching Screenshot Top Banner */}
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#00D26A', fontWeight: '900', fontSize: '13px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>
-              <Zap size={18} fill="#00D26A" /> RIDE ELECTRIC. RIDE SMART.
-            </div>
-            <h1 style={{ fontSize: '32px', fontWeight: '900', color: '#FFFFFF', letterSpacing: '-0.03em', margin: '0 0 10px' }}>
-              NK E-BIKE APP – DEMO SCREENS
-            </h1>
-            <p style={{ fontSize: '14px', color: '#94A3B8', fontWeight: '600' }}>
-              Modern • Clean • Electric • Smart • Akole Showroom Hub
-            </p>
-          </div>
-
-          {/* Row 1: Screens 1 to 6 */}
-          <div style={{ 
-            display: 'flex', 
-            gap: '24px', 
-            overflowX: 'auto', 
-            paddingBottom: '24px', 
-            marginBottom: '36px',
-            justifyContent: 'flex-start'
-          }}>
-            {/* Screen 1 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B' }}>
-                <SplashScreen isStandalone={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                1. Splash Screen
-              </span>
-            </div>
-
-            {/* Screen 2 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF' }}>
-                <OnboardingScreen />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                2. Onboarding Screen
-              </span>
-            </div>
-
-            {/* Screen 3 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF', overflowY: 'auto' }}>
-                <AuthScreen />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                3. Login / Register Screen
-              </span>
-            </div>
-
-            {/* Screen 4 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#F8FAFC', overflowY: 'auto' }}>
-                <HomeScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                4. Home Screen
-              </span>
-            </div>
-
-            {/* Screen 5 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#F8FAFC', overflowY: 'auto' }}>
-                <BikesListScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                5. Bikes List Screen
-              </span>
-            </div>
-
-            {/* Screen 6 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF', overflowY: 'auto' }}>
-                <BikeDetailScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                6. Bike Details Screen
-              </span>
-            </div>
-          </div>
-
-          {/* Row 2: Screens 7 to 13 */}
-          <div style={{ 
-            display: 'flex', 
-            gap: '24px', 
-            overflowX: 'auto', 
-            paddingBottom: '24px',
-            justifyContent: 'flex-start'
-          }}>
-            {/* Screen 7 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF', overflowY: 'auto' }}>
-                <TestRideScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                7. Test Ride Booking
-              </span>
-            </div>
-
-            {/* Screen 8 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF', overflowY: 'auto' }}>
-                <ServiceScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                8. Service Booking
-              </span>
-            </div>
-
-            {/* Screen 9 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#F8FAFC', overflowY: 'auto' }}>
-                <BookingsScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                9. My Bookings Screen
-              </span>
-            </div>
-
-            {/* Screen 10 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#F8FAFC', overflowY: 'auto' }}>
-                <ProfileScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                10. Profile Screen
-              </span>
-            </div>
-
-            {/* Screen 11 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF', overflowY: 'auto' }}>
-                <ShowroomScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                11. Showroom / Contact
-              </span>
-            </div>
-
-            {/* Screen 12 */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#FFF', overflowY: 'auto' }}>
-                <NotificationScreen isMobileView={true} />
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                12. Notifications Screen
-              </span>
-            </div>
-
-            {/* Screen 13 (Drawer preview) */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '310px', height: '620px', borderRadius: '34px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.5)', border: '6px solid #1E293B', background: '#062817', overflowY: 'auto' }}>
-                <div style={{ padding: '30px 20px', color: '#FFF' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
-                    <img 
-                      src={user?.avatar_url || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80"} 
-                      alt="Shivam" 
-                      style={{ width: '52px', height: '52px', borderRadius: '50%', border: '2.5px solid #00D26A' }}
-                    />
-                    <div>
-                      <h4 style={{ margin: 0, fontWeight: '800' }}>Shivam Mundhe</h4>
-                      <p style={{ margin: 0, fontSize: '12px', color: '#94A3B8' }}>+91 9270441850</p>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14px', fontWeight: '600' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#00D26A' }}><Zap size={18} /> Home</div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><Zap size={18} /> Bikes</div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><Calendar size={18} /> My Bookings</div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><Wrench size={18} /> Service</div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><Bell size={18} /> Notifications</div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}><MapPin size={18} /> Showroom</div>
-                  </div>
-                </div>
-              </div>
-              <span className="badge-status" style={{ background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '6px 14px', fontSize: '12px' }}>
-                13. Drawer / Menu Screen
-              </span>
-            </div>
-          </div>
-
-          {/* Bottom Bar matching Demo footer */}
-          <div style={{
-            marginTop: '30px',
-            padding: '16px 24px',
-            background: '#0F172A',
-            borderRadius: '20px',
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '14px',
-            color: '#94A3B8',
-            fontSize: '13px',
-            fontWeight: '700'
-          }}>
-            <span style={{ color: '#00D26A' }}>🌱 Eco Friendly</span>
-            <span style={{ color: '#00D26A' }}>⚡ Zero Emission</span>
-            <span style={{ color: '#00D26A' }}>🔧 Low Maintenance</span>
-            <span style={{ color: '#00D26A' }}>🛡️ Smart & Safe</span>
-            <span style={{ color: '#00D26A' }}>💰 Cost Effective</span>
-            <span style={{ color: '#FFFFFF', fontWeight: '900' }}>RIDE ELECTRIC. RIDE SMART.</span>
-          </div>
-        </div>
-      )}
-
-      {/* VIEW MODE 2: INTERACTIVE MOBILE SIMULATOR */}
-      {viewMode === 'mobile' && (
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 10px' }}>
-          {/* Quick Screen Nav Bar */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            overflowX: 'auto',
-            maxWidth: '1000px',
-            width: '100%',
-            padding: '10px 16px',
-            marginBottom: '20px',
-            background: '#121824',
-            borderRadius: '30px',
-            border: '1px solid #1F293D'
-          }}>
-            {screenNavPills.map(p => (
-              <button
-                key={p.id}
-                onClick={() => setCurrentScreen(p.id)}
-                style={{
-                  background: currentScreen === p.id ? '#00D26A' : 'transparent',
-                  color: currentScreen === p.id ? '#000' : '#94A3B8',
-                  border: 'none',
-                  borderRadius: '20px',
-                  padding: '6px 12px',
-                  fontSize: '12px',
-                  fontWeight: '700',
-                  whiteSpace: 'nowrap',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                {p.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Centered Phone Frame */}
-          <div className="phone-simulator-wrapper">
-            <MobileFrame>
-              {renderCurrentMobileScreen()}
-            </MobileFrame>
-          </div>
-        </div>
-      )}
-
-      {/* VIEW MODE 3: FULL EXPANSIVE WEB DESKTOP SHOWROOM */}
-      {viewMode === 'web' && (
+      {/* FULL WEB DESKTOP SHOWROOM / POSTERS SCREEN */}
+      {currentScreen === 'posters' ? (
+        <PostersScreen />
+      ) : (
         <div style={{ flex: 1, background: '#090D14', color: '#F8FAFC' }}>
           {/* Full Web Desktop Navigation Header */}
           <header style={{
@@ -404,6 +143,12 @@ export function App() {
 
             {/* Desktop Nav Links */}
             <nav style={{ display: 'flex', alignItems: 'center', gap: '28px', fontSize: '14px', fontWeight: '700' }}>
+              <button 
+                onClick={() => navigateTo('posters')} 
+                style={{ background: 'none', border: 'none', color: '#00D26A', fontWeight: '800', cursor: 'pointer', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '6px' }}
+              >
+                🖼️ Official Posters
+              </button>
               <a href="#models" style={{ color: '#E2E8F0', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = '#00D26A'} onMouseLeave={e => e.target.style.color = '#E2E8F0'}>E-Bikes</a>
               <a href="#test-ride" style={{ color: '#E2E8F0', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = '#00D26A'} onMouseLeave={e => e.target.style.color = '#E2E8F0'}>Test Ride</a>
               <a href="#service" style={{ color: '#E2E8F0', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = '#00D26A'} onMouseLeave={e => e.target.style.color = '#E2E8F0'}>Service Center</a>
@@ -411,22 +156,47 @@ export function App() {
             </nav>
 
             {/* Header Right Actions */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <button 
-                onClick={() => setViewMode('mobile')}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <a
+                href="tel:+917875493982"
                 style={{
-                  background: 'rgba(0, 210, 106, 0.1)',
+                  background: 'rgba(0, 210, 106, 0.15)',
                   color: '#00D26A',
-                  border: '1px solid rgba(0, 210, 106, 0.3)',
+                  border: '1px solid rgba(0, 210, 106, 0.4)',
                   borderRadius: '20px',
                   padding: '8px 16px',
                   fontSize: '13px',
                   fontWeight: '700',
-                  cursor: 'pointer'
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
                 }}
               >
-                📱 Mobile App Simulator
-              </button>
+                📞 Call
+              </a>
+
+              <a
+                href="https://wa.me/917875493982"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'rgba(37, 211, 102, 0.15)',
+                  color: '#25D366',
+                  border: '1px solid rgba(37, 211, 102, 0.4)',
+                  borderRadius: '20px',
+                  padding: '8px 16px',
+                  fontSize: '13px',
+                  fontWeight: '700',
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
 
               <button 
                 onClick={() => {
@@ -482,9 +252,13 @@ export function App() {
                 <a href="#test-ride" className="btn-electric" style={{ padding: '14px 28px', fontSize: '15px' }}>
                   <Calendar size={18} /> Book Free Test Ride
                 </a>
-                <a href="#models" className="btn-outline-electric" style={{ padding: '14px 28px', fontSize: '15px' }}>
-                  Explore Models (4)
-                </a>
+                <button 
+                  onClick={() => navigateTo('posters')} 
+                  className="btn-outline-electric" 
+                  style={{ padding: '14px 28px', fontSize: '15px', borderColor: '#00D26A' }}
+                >
+                  🖼️ View Official Posters Gallery
+                </button>
               </div>
 
               {/* Stats Bar */}
@@ -619,27 +393,53 @@ export function App() {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '14px' }}>
                     <button
                       onClick={() => {
-                        navigateTo('test-ride', bike);
-                        setViewMode('mobile');
+                        const elem = document.getElementById('test-ride');
+                        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
                       }}
                       className="btn-electric"
-                      style={{ flex: 1, padding: '10px', fontSize: '13px' }}
+                      style={{ width: '100%', padding: '10px', fontSize: '13px' }}
                     >
-                      Book Test Ride
+                      📅 Book Test Ride
                     </button>
-                    <button
-                      onClick={() => {
-                        navigateTo('bike-detail', bike);
-                        setViewMode('mobile');
-                      }}
-                      className="btn-outline-electric"
-                      style={{ padding: '10px 14px', fontSize: '13px' }}
-                    >
-                      Specs
-                    </button>
+                    
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                      <a
+                        href="tel:+917875493982"
+                        className="btn-outline-electric"
+                        style={{ 
+                          padding: '8px', 
+                          fontSize: '12px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '4px'
+                        }}
+                      >
+                        📞 Call
+                      </a>
+                      <a
+                        href="https://wa.me/917875493982"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline-electric"
+                        style={{ 
+                          padding: '8px', 
+                          fontSize: '12px',
+                          borderColor: '#25D366',
+                          color: '#25D366',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '4px'
+                        }}
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -704,16 +504,32 @@ export function App() {
                   VISIT OUR HUB
                 </span>
                 <h2 style={{ fontSize: '32px', fontWeight: '900', color: '#FFFFFF', margin: '8px 0 16px' }}>
-                  NK E-BIKE Showroom, Akole
+                  NK E-BIKES (Hase Brother's)
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14px', color: '#E2E8F0', marginBottom: '28px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <MapPin size={20} color="#00D26A" />
-                    <span>K.G. Road, Nawalewadi, Akole, Maharashtra - 422601</span>
+                    <span>Near Agasti College, Akole, Maharashtra - 422601</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Phone size={20} color="#00D26A" />
-                    <span>+91 9270441850 / 1234567890</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <Phone size={20} color="#00D26A" />
+                      <strong style={{ color: '#FFF' }}>Contact (Hase Brother's):</strong>
+                    </div>
+                    <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingLeft: '32px' }}>
+                      <a 
+                        href="tel:+917875493982"
+                        style={{ color: '#00D26A', textDecoration: 'none', fontWeight: '700', background: 'rgba(0,210,106,0.1)', padding: '4px 10px', borderRadius: '10px' }}
+                      >
+                        📞 7875493982
+                      </a>
+                      <a 
+                        href="tel:+919975983387"
+                        style={{ color: '#00D26A', textDecoration: 'none', fontWeight: '700', background: 'rgba(0,210,106,0.1)', padding: '4px 10px', borderRadius: '10px' }}
+                      >
+                        📞 9975983387
+                      </a>
+                    </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <Mail size={20} color="#00D26A" />
@@ -725,20 +541,49 @@ export function App() {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                   <button 
-                    onClick={() => window.open(showroomInfo?.map_link || 'https://maps.google.com/?q=Akole+Maharashtra+422601', '_blank')}
+                    onClick={() => window.open(showroomInfo?.map_link || 'https://maps.google.com/?q=Agasti+College+Akole+Maharashtra', '_blank')}
                     className="btn-electric" 
-                    style={{ padding: '12px 24px' }}
+                    style={{ padding: '12px 20px', fontSize: '13px' }}
                   >
-                    Open Google Maps
+                    📍 Open Google Maps
                   </button>
                   <a 
-                    href="tel:+919270441850" 
+                    href={`https://wa.me/917875493982?text=${encodeURIComponent('Namaskar Hase Brother\'s! I want to visit NK E-BIKES Showroom near Agasti College, Akole. Please share exact location and timing details.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn-outline-electric" 
-                    style={{ padding: '12px 24px' }}
+                    style={{ 
+                      padding: '12px 18px',
+                      borderColor: '#25D366',
+                      color: '#25D366',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '13px'
+                    }}
                   >
-                    Call Showroom
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Visit Shop Inquiry (7875493982)
+                  </a>
+                  <a 
+                    href={`https://wa.me/919975983387?text=${encodeURIComponent('Namaskar Hase Brother\'s! I want to visit NK E-BIKES Showroom near Agasti College, Akole. Please share exact location and timing details.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline-electric" 
+                    style={{ 
+                      padding: '12px 18px',
+                      borderColor: '#25D366',
+                      color: '#25D366',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '13px'
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Visit Shop Inquiry (9975983387)
                   </a>
                 </div>
               </div>
@@ -790,7 +635,7 @@ export function App() {
               <strong style={{ color: '#FFF', fontSize: '16px' }}>NK E-BIKE AKOLE</strong>
             </div>
             <p style={{ margin: '0 0 14px' }}>
-              RIDE ELECTRIC. RIDE SMART. • K.G. Road, Nawalewadi, Akole, Maharashtra - 422601
+              RIDE ELECTRIC. RIDE SMART. • Hase Brother's • Near Agasti College, Akole, Maharashtra - 422601 • Contact: 7875493982 / 9975983387
             </p>
             <p style={{ margin: 0, fontSize: '12px' }}>
               © {new Date().getFullYear()} NK E-BIKE. Powered by React + FastAPI + PostgreSQL. Built for GitHub Deployment.

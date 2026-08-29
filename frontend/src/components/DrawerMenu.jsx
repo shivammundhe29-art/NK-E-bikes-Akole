@@ -13,6 +13,7 @@ export const DrawerMenu = () => {
 
   const menuItems = [
     { label: 'Home', icon: Home, screen: 'home' },
+    { label: 'Official Posters Gallery', icon: Zap, screen: 'posters' },
     { label: 'Bikes', icon: Bike, screen: 'bikes' },
     { label: 'My Bookings', icon: CalendarCheck, screen: 'bookings' },
     { label: 'Service', icon: Wrench, screen: 'service' },

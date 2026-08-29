@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
   const [selectedBike, setSelectedBike] = useState(INITIAL_BIKES[0]); // default NK Bravo
   const [selectedBikeColor, setSelectedBikeColor] = useState('#00D26A');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('both'); // 'responsive_web', 'mobile_demo', 'both'
+  const [viewMode, setViewMode] = useState('web'); // 'web' only
 
   // Data State
   const [bikes, setBikes] = useState(INITIAL_BIKES);
