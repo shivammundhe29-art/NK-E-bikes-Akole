@@ -31,16 +31,18 @@ export const PostersScreen = ({ isMobileView = false }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '16px 32px',
+          padding: '14px 20px',
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
           backdropFilter: 'blur(12px)',
           borderBottom: '1px solid #1E293B',
           position: 'sticky',
           top: 0,
-          zIndex: 100
+          zIndex: 100,
+          flexWrap: 'wrap',
+          gap: '12px'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
             onClick={() => navigateTo('home')}
             style={{
@@ -58,17 +60,17 @@ export const PostersScreen = ({ isMobileView = false }) => {
             <ArrowLeft size={20} />
           </button>
           <div>
-            <h2 style={{ fontSize: '20px', fontWeight: '900', margin: 0, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-              NK E-BIKES <span style={{ color: '#00D26A' }}>OFFICIAL POSTERS & CATALOG</span>
+            <h2 style={{ fontSize: '18px', fontWeight: '900', margin: 0, color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              NK E-BIKES <span style={{ color: '#00D26A' }}>POSTERS & CATALOG</span>
             </h2>
-            <span style={{ fontSize: '12px', color: '#94A3B8', fontWeight: '600' }}>
-              Near Agasti College, Akole • Contact: 7875493982 / 9975983387
+            <span style={{ fontSize: '11px', color: '#94A3B8', fontWeight: '600' }}>
+              Near Agasti College, Akole • Hase Brother's
             </span>
           </div>
         </div>
 
         {/* Tab Buttons */}
-        <div style={{ display: 'flex', gap: '8px', background: '#121824', padding: '6px', borderRadius: '30px', border: '1px solid #1F293D' }}>
+        <div style={{ display: 'flex', gap: '6px', background: '#121824', padding: '4px', borderRadius: '30px', border: '1px solid #1F293D', flexWrap: 'wrap', maxWidth: '100%' }}>
           <button
             onClick={() => setActiveTab('gtr')}
             style={{
@@ -76,8 +78,8 @@ export const PostersScreen = ({ isMobileView = false }) => {
               color: activeTab === 'gtr' ? '#000' : '#94A3B8',
               border: 'none',
               borderRadius: '20px',
-              padding: '8px 18px',
-              fontSize: '13px',
+              padding: '6px 14px',
+              fontSize: '12px',
               fontWeight: '800',
               cursor: 'pointer',
               transition: 'all 0.2s'
@@ -92,14 +94,14 @@ export const PostersScreen = ({ isMobileView = false }) => {
               color: activeTab === 'classic' ? '#000' : '#94A3B8',
               border: 'none',
               borderRadius: '20px',
-              padding: '8px 18px',
-              fontSize: '13px',
+              padding: '6px 14px',
+              fontSize: '12px',
               fontWeight: '800',
               cursor: 'pointer',
               transition: 'all 0.2s'
             }}
           >
-            🛵 CLASSIC RETRO (5 Colors)
+            🛵 CLASSIC RETRO
           </button>
           <button
             onClick={() => setActiveTab('lead')}
@@ -108,8 +110,8 @@ export const PostersScreen = ({ isMobileView = false }) => {
               color: activeTab === 'lead' ? '#000' : '#94A3B8',
               border: 'none',
               borderRadius: '20px',
-              padding: '8px 18px',
-              fontSize: '13px',
+              padding: '6px 14px',
+              fontSize: '12px',
               fontWeight: '800',
               cursor: 'pointer',
               transition: 'all 0.2s'
@@ -121,7 +123,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
       </header>
 
       {/* Main Container */}
-      <div style={{ maxWidth: '1200px', width: '100%', margin: '0 auto', padding: '36px 20px', flex: 1 }}>
+      <div style={{ maxWidth: '1200px', width: '100%', margin: '0 auto', padding: '24px 16px', flex: 1, boxSizing: 'border-box' }}>
 
         {/* POSTER 1: GTR PLUS ++ */}
         {activeTab === 'gtr' && (
@@ -160,7 +162,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Poster Main Bike Image with Overlay Buttons */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(0, 210, 106, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/gtr_plus_scooter.jpg" 
+                src="./gtr_plus_scooter.jpg" 
                 alt="GTR PLUS ++ Electric Scooter" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '520px', objectFit: 'cover' }}
               />
@@ -366,7 +368,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Poster Main Bike Lineup Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/classic_retro_scooters.jpg" 
+                src="./classic_retro_scooters.jpg" 
                 alt="NK Classic Retro Scooters 5 Colors" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '500px', objectFit: 'cover' }}
               />
@@ -513,7 +515,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Poster Main Bike Image for Flagship Lead */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(234, 179, 8, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/engineered_lead_scooter.jpg" 
+                src="./engineered_lead_scooter.jpg" 
                 alt="Engineered to Lead Flagship Scooter" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '520px', objectFit: 'cover' }}
               />
