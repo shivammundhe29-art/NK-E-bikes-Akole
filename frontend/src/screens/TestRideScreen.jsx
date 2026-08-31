@@ -9,11 +9,11 @@ export const TestRideScreen = ({ isMobileView = false }) => {
   const { user } = useAuth();
 
   const [bikeName, setBikeName] = useState(selectedBike?.name || 'NK Bravo');
-  const [bookingDate, setBookingDate] = useState('2025-05-25');
+  const [bookingDate, setBookingDate] = useState('');
   const [timeSlot, setTimeSlot] = useState('10:00 AM - 11:00 AM');
-  const [fullName, setFullName] = useState(user?.full_name || 'Shivam Mundhe');
-  const [mobileNumber, setMobileNumber] = useState(user?.mobile_number || '+91 9270441850');
-  const [address, setAddress] = useState(user?.address || 'K.G. Road, Akole');
+  const [fullName, setFullName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [address, setAddress] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 

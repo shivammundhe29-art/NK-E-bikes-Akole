@@ -9,10 +9,10 @@ export const ServiceScreen = ({ isMobileView = false }) => {
   const { user } = useAuth();
 
   const [bikeName, setBikeName] = useState('NK Bravo');
-  const [vehicleNumber, setVehicleNumber] = useState('MH 15 AB 1234');
+  const [vehicleNumber, setVehicleNumber] = useState('');
   const [serviceType, setServiceType] = useState('General Service');
-  const [problemDescription, setProblemDescription] = useState('Periodic inspection and battery diagnostics.');
-  const [preferredDate, setPreferredDate] = useState('2025-05-25');
+  const [problemDescription, setProblemDescription] = useState('');
+  const [preferredDate, setPreferredDate] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 

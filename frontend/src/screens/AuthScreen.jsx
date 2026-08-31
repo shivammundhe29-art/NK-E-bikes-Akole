@@ -8,9 +8,9 @@ export const AuthScreen = () => {
   const { navigateTo, showToast } = useApp();
 
   const [isRegisterMode, setIsRegisterMode] = useState(false);
-  const [mobileNumber, setMobileNumber] = useState('+91 9270441850');
-  const [password, setPassword] = useState('password123');
-  const [fullName, setFullName] = useState('Shivam Mundhe');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
