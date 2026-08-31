@@ -27,10 +27,42 @@ export const TestRideScreen = ({ isMobileView = false }) => {
     '06:00 PM - 07:00 PM'
   ];
 
+  const todayDate = new Date().toISOString().split('T')[0];
+
+  const handleNameChange = (e) => {
+    // Only allow letters and spaces
+    const val = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    setFullName(val);
+  };
+
+  const handleMobileChange = (e) => {
+    // Only allow digits up to 10 characters
+    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setMobileNumber(val);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!fullName || !mobileNumber) {
-      showToast('Please fill all required fields', 'error');
+    
+    // Validation checks
+    const trimmedName = fullName.trim();
+    if (!trimmedName || trimmedName.length < 3) {
+      showToast('Please enter a valid full name (at least 3 letters)', 'error');
+      return;
+    }
+
+    if (!mobileNumber || !/^[6-9]\d{9}$/.test(mobileNumber)) {
+      showToast('Please enter a valid 10-digit mobile number starting with 6-9', 'error');
+      return;
+    }
+
+    if (!bookingDate) {
+      showToast('Please select a test ride date', 'error');
+      return;
+    }
+
+    if (bookingDate < todayDate) {
+      showToast('Please select today or a future date', 'error');
       return;
     }
 
@@ -44,8 +76,8 @@ export const TestRideScreen = ({ isMobileView = false }) => {
         bike_name: bikeName,
         booking_date: bookingDate,
         time_slot: timeSlot,
-        full_name: fullName,
-        mobile_number: mobileNumber,
+        full_name: trimmedName,
+        mobile_number: `+91 ${mobileNumber}`,
         address: address
       });
 
@@ -55,9 +87,9 @@ export const TestRideScreen = ({ isMobileView = false }) => {
         `🛵 *Bike Model:* ${bikeName}\n` +
         `📅 *Date:* ${bookingDate}\n` +
         `⏰ *Time Slot:* ${timeSlot}\n` +
-        `👤 *Customer Name:* ${fullName}\n` +
-        `📱 *Mobile:* ${mobileNumber}\n` +
-        `📍 *Address:* ${address}\n\n` +
+        `👤 *Customer Name:* ${trimmedName}\n` +
+        `📱 *Mobile:* +91 ${mobileNumber}\n` +
+        `📍 *Address:* ${address || 'Akole, Maharashtra'}\n\n` +
         `Hello Hase Brother's (NK E-Bikes Akole), please confirm my test ride appointment!`
       );
 
@@ -209,6 +241,7 @@ export const TestRideScreen = ({ isMobileView = false }) => {
               <div style={{ position: 'relative' }}>
                 <input
                   type="date"
+                  min={todayDate}
                   value={bookingDate}
                   onChange={(e) => setBookingDate(e.target.value)}
                   className="form-input-custom"
@@ -241,9 +274,9 @@ export const TestRideScreen = ({ isMobileView = false }) => {
               <div style={{ position: 'relative' }}>
                 <input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Enter your name (e.g. Rahul Sharma)"
                   value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
+                  onChange={handleNameChange}
                   className="form-input-custom"
                   style={{ paddingLeft: '40px' }}
                   required
@@ -258,9 +291,10 @@ export const TestRideScreen = ({ isMobileView = false }) => {
               <div style={{ position: 'relative' }}>
                 <input
                   type="tel"
-                  placeholder="Enter mobile number"
+                  placeholder="10-digit mobile number (e.g. 9876543210)"
                   value={mobileNumber}
-                  onChange={(e) => setMobileNumber(e.target.value)}
+                  onChange={handleMobileChange}
+                  maxLength={10}
                   className="form-input-custom"
                   style={{ paddingLeft: '40px' }}
                   required

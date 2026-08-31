@@ -25,10 +25,29 @@ export const ServiceScreen = ({ isMobileView = false }) => {
     'Motor & Controller Tuning'
   ];
 
+  const todayDate = new Date().toISOString().split('T')[0];
+
+  const handleVehicleNumChange = (e) => {
+    // Only allow capital letters, numbers, and spaces
+    const val = e.target.value.toUpperCase().replace(/[^A-Z0-9\s]/g, '').slice(0, 13);
+    setVehicleNumber(val);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!vehicleNumber.trim()) {
-      showToast('Please enter your vehicle number', 'error');
+    const cleanVehNum = vehicleNumber.trim();
+    if (!cleanVehNum || cleanVehNum.length < 5) {
+      showToast('Please enter a valid vehicle registration number (e.g. MH 15 AB 1234)', 'error');
+      return;
+    }
+
+    if (!preferredDate) {
+      showToast('Please select a preferred service date', 'error');
+      return;
+    }
+
+    if (preferredDate < todayDate) {
+      showToast('Please select today or a future date for service', 'error');
       return;
     }
 
@@ -40,9 +59,9 @@ export const ServiceScreen = ({ isMobileView = false }) => {
         user_id: user?.id || 1,
         bike_id: chosenBike?.id || 1,
         bike_name: bikeName,
-        vehicle_number: vehicleNumber.toUpperCase(),
+        vehicle_number: cleanVehNum,
         service_type: serviceType,
-        problem_description: problemDescription,
+        problem_description: problemDescription || 'General Service',
         preferred_date: preferredDate
       });
 
@@ -50,9 +69,9 @@ export const ServiceScreen = ({ isMobileView = false }) => {
       const waText = encodeURIComponent(
         `🔧 *NEW SERVICE BOOKING* 🔧\n\n` +
         `🛵 *Bike:* ${bikeName}\n` +
-        `🔢 *Vehicle No:* ${vehicleNumber.toUpperCase()}\n` +
+        `🔢 *Vehicle No:* ${cleanVehNum}\n` +
         `🛠️ *Service Type:* ${serviceType}\n` +
-        `📝 *Details:* ${problemDescription}\n` +
+        `📝 *Details:* ${problemDescription || 'General Service'}\n` +
         `📅 *Preferred Date:* ${preferredDate}\n\n` +
         `Hello Hase Brother's (NK E-Bikes Akole), please confirm my service appointment!`
       );
@@ -184,9 +203,10 @@ export const ServiceScreen = ({ isMobileView = false }) => {
               <div style={{ position: 'relative' }}>
                 <input
                   type="text"
-                  placeholder="MH 15 AB 1234"
+                  placeholder="e.g. MH 15 AB 1234"
                   value={vehicleNumber}
-                  onChange={(e) => setVehicleNumber(e.target.value.toUpperCase())}
+                  onChange={handleVehicleNumChange}
+                  maxLength={13}
                   className="form-input-custom"
                   style={{ paddingLeft: '40px', fontWeight: '700', letterSpacing: '1px' }}
                   required
@@ -228,6 +248,7 @@ export const ServiceScreen = ({ isMobileView = false }) => {
               <label className="form-label-custom">Preferred Date</label>
               <input
                 type="date"
+                min={todayDate}
                 value={preferredDate}
                 onChange={(e) => setPreferredDate(e.target.value)}
                 className="form-input-custom"

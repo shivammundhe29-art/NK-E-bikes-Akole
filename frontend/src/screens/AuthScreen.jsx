@@ -14,10 +14,25 @@ export const AuthScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const handleNameChange = (e) => {
+    const val = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    setFullName(val);
+  };
+
+  const handleMobileChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setMobileNumber(val);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!mobileNumber.trim()) {
-      showToast('Please enter your mobile number', 'error');
+    if (!mobileNumber || !/^[6-9]\d{9}$/.test(mobileNumber)) {
+      showToast('Please enter a valid 10-digit mobile number starting with 6-9', 'error');
+      return;
+    }
+
+    if (isRegisterMode && (!fullName.trim() || fullName.trim().length < 3)) {
+      showToast('Please enter a valid full name (at least 3 letters)', 'error');
       return;
     }
 
@@ -34,7 +49,7 @@ export const AuthScreen = () => {
   };
 
   const handleGoogleLogin = () => {
-    login('+91 9270441850', 'google_auth');
+    login('9270441850', 'google_auth');
     showToast('Logged in with Google', 'success');
     navigateTo('home');
   };
@@ -92,9 +107,9 @@ export const AuthScreen = () => {
             <div style={{ position: 'relative' }}>
               <input
                 type="text"
-                placeholder="Shivam Mundhe"
+                placeholder="Enter full name"
                 value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+                onChange={handleNameChange}
                 className="form-input-custom"
                 style={{ paddingLeft: '42px' }}
                 required
@@ -109,9 +124,10 @@ export const AuthScreen = () => {
           <div style={{ position: 'relative' }}>
             <input
               type="tel"
-              placeholder="+91 9270441850"
+              placeholder="10-digit mobile number (e.g. 9876543210)"
               value={mobileNumber}
-              onChange={(e) => setMobileNumber(e.target.value)}
+              onChange={handleMobileChange}
+              maxLength={10}
               className="form-input-custom"
               style={{ paddingLeft: '42px' }}
               required
