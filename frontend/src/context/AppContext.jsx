@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { api, INITIAL_BIKES, INITIAL_SHOWROOM, INITIAL_NOTIFICATIONS, INITIAL_TEST_RIDES, INITIAL_SERVICES } from '../services/api';
+import { TRANSLATIONS } from '../services/translations';
 
 const AppContext = createContext();
 
@@ -11,6 +12,28 @@ export const AppProvider = ({ children }) => {
   const [selectedBikeColor, setSelectedBikeColor] = useState('#00D26A');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [viewMode, setViewMode] = useState('web'); // 'web' only
+
+  // Multi-Language & Theme State
+  const [language, setLanguage] = useState(() => localStorage.getItem('nk_lang') || 'en');
+  const [themeMode, setThemeMode] = useState(() => localStorage.getItem('nk_theme') || 'dark');
+
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    localStorage.setItem('nk_lang', lang);
+  };
+
+  const toggleTheme = () => {
+    setThemeMode(prev => {
+      const nextTheme = prev === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('nk_theme', nextTheme);
+      return nextTheme;
+    });
+  };
+
+  const t = (key) => {
+    const dict = TRANSLATIONS[language] || TRANSLATIONS.en;
+    return dict[key] || TRANSLATIONS.en[key] || key;
+  };
 
   // Data State
   const [bikes, setBikes] = useState(INITIAL_BIKES);
@@ -139,6 +162,12 @@ export const AppProvider = ({ children }) => {
       setIsDrawerOpen,
       viewMode,
       setViewMode,
+      language,
+      setLanguage: changeLanguage,
+      themeMode,
+      setThemeMode,
+      toggleTheme,
+      t,
       bikes,
       testRides,
       services,

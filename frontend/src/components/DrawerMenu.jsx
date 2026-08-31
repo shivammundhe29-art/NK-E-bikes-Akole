@@ -1,25 +1,34 @@
 import React from 'react';
 import { 
-  Home, Bike, CalendarCheck, Wrench, Bell, MapPin, Settings, LogOut, X, ChevronRight, Zap, ShieldCheck 
+  Home, Bike, CalendarCheck, Wrench, Bell, MapPin, Settings, LogOut, X, ChevronRight, Zap, Sun, Moon, Globe 
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
 
 export const DrawerMenu = () => {
-  const { isDrawerOpen, setIsDrawerOpen, navigateTo } = useApp();
+  const { 
+    isDrawerOpen, 
+    setIsDrawerOpen, 
+    navigateTo, 
+    language, 
+    setLanguage, 
+    themeMode, 
+    toggleTheme, 
+    t 
+  } = useApp();
   const { user, logout } = useAuth();
 
   if (!isDrawerOpen) return null;
 
   const menuItems = [
-    { label: 'Home', icon: Home, screen: 'home' },
-    { label: 'Official Posters Gallery', icon: Zap, screen: 'posters' },
-    { label: 'Bikes', icon: Bike, screen: 'bikes' },
-    { label: 'My Bookings', icon: CalendarCheck, screen: 'bookings' },
-    { label: 'Service', icon: Wrench, screen: 'service' },
-    { label: 'Notifications', icon: Bell, screen: 'notifications' },
-    { label: 'Showroom', icon: MapPin, screen: 'showroom' },
-    { label: 'Profile & Settings', icon: Settings, screen: 'profile' },
+    { label: t('menuHome'), icon: Home, screen: 'home' },
+    { label: t('menuPosters'), icon: Zap, screen: 'posters' },
+    { label: t('menuBikes'), icon: Bike, screen: 'bikes' },
+    { label: t('menuBookings'), icon: CalendarCheck, screen: 'bookings' },
+    { label: t('menuService'), icon: Wrench, screen: 'service' },
+    { label: t('menuNotifications'), icon: Bell, screen: 'notifications' },
+    { label: t('menuShowroom'), icon: MapPin, screen: 'showroom' },
+    { label: t('menuProfile'), icon: Settings, screen: 'profile' },
   ];
 
   const handleLogout = () => {
@@ -49,15 +58,15 @@ export const DrawerMenu = () => {
         }}
       />
 
-      {/* Slide Drawer Content (Dark Emerald Styling matching Screen 13) */}
+      {/* Slide Drawer Content */}
       <div 
         style={{
           position: 'relative',
-          width: '310px',
+          width: '320px',
           maxWidth: '85vw',
           height: '100%',
-          background: 'linear-gradient(180deg, #062817 0%, #03170D 100%)',
-          color: '#FFFFFF',
+          background: themeMode === 'light' ? 'linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)' : 'linear-gradient(180deg, #062817 0%, #03170D 100%)',
+          color: themeMode === 'light' ? '#0F172A' : '#FFFFFF',
           display: 'flex',
           flexDirection: 'column',
           boxShadow: '8px 0 32px rgba(0, 0, 0, 0.5)',
@@ -72,7 +81,7 @@ export const DrawerMenu = () => {
             position: 'absolute',
             top: '16px',
             right: '16px',
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: themeMode === 'light' ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.1)',
             border: 'none',
             borderRadius: '50%',
             width: '32px',
@@ -80,7 +89,7 @@ export const DrawerMenu = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#FFFFFF',
+            color: themeMode === 'light' ? '#0F172A' : '#FFFFFF',
             cursor: 'pointer'
           }}
         >
@@ -91,8 +100,8 @@ export const DrawerMenu = () => {
         <div 
           onClick={() => { navigateTo('profile'); setIsDrawerOpen(false); }}
           style={{
-            padding: '40px 24px 24px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            padding: '40px 24px 20px',
+            borderBottom: themeMode === 'light' ? '1px solid #E2E8F0' : '1px solid rgba(255, 255, 255, 0.1)',
             display: 'flex',
             alignItems: 'center',
             gap: '16px',
@@ -119,22 +128,112 @@ export const DrawerMenu = () => {
               width: '14px',
               height: '14px',
               borderRadius: '50%',
-              border: '2px solid #062817'
+              border: themeMode === 'light' ? '2px solid #FFF' : '2px solid #062817'
             }} />
           </div>
           <div>
-            <h3 style={{ fontSize: '17px', fontWeight: '800', margin: 0, color: '#FFFFFF' }}>
+            <h3 style={{ fontSize: '17px', fontWeight: '800', margin: 0, color: themeMode === 'light' ? '#0F172A' : '#FFFFFF' }}>
               {user?.full_name || "Shivam Mundhe"}
             </h3>
-            <p style={{ fontSize: '13px', color: '#94A3B8', margin: '3px 0 0' }}>
+            <p style={{ fontSize: '13px', color: '#64748B', margin: '3px 0 0' }}>
               {user?.mobile_number || "+91 9270441850"}
             </p>
           </div>
         </div>
 
+        {/* Settings Bar: Theme & Language Switcher */}
+        <div style={{
+          padding: '16px 20px',
+          borderBottom: themeMode === 'light' ? '1px solid #E2E8F0' : '1px solid rgba(255, 255, 255, 0.1)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px'
+        }}>
+          {/* Theme Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '13px', fontWeight: '700', color: themeMode === 'light' ? '#334155' : '#94A3B8', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              {themeMode === 'light' ? <Sun size={16} color="#F59E0B" /> : <Moon size={16} color="#38BDF8" />}
+              {themeMode === 'light' ? t('lightMode') : t('darkMode')}
+            </span>
+            <button
+              onClick={toggleTheme}
+              style={{
+                background: themeMode === 'light' ? '#E2E8F0' : 'rgba(255,255,255,0.12)',
+                border: 'none',
+                borderRadius: '20px',
+                padding: '6px 14px',
+                color: themeMode === 'light' ? '#0F172A' : '#FFF',
+                fontWeight: '800',
+                fontSize: '12px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+            >
+              {themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}
+            </button>
+          </div>
+
+          {/* Language Switcher Buttons */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '13px', fontWeight: '700', color: themeMode === 'light' ? '#334155' : '#94A3B8', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Globe size={16} color="#00D26A" />
+              {t('language')}
+            </span>
+            <div style={{ display: 'flex', gap: '4px', background: themeMode === 'light' ? '#E2E8F0' : 'rgba(0,0,0,0.3)', padding: '3px', borderRadius: '10px' }}>
+              <button
+                onClick={() => setLanguage('en')}
+                style={{
+                  background: language === 'en' ? '#00D26A' : 'transparent',
+                  color: language === 'en' ? '#000' : (themeMode === 'light' ? '#475569' : '#94A3B8'),
+                  border: 'none',
+                  borderRadius: '7px',
+                  padding: '4px 8px',
+                  fontSize: '11px',
+                  fontWeight: '800',
+                  cursor: 'pointer'
+                }}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage('mr')}
+                style={{
+                  background: language === 'mr' ? '#00D26A' : 'transparent',
+                  color: language === 'mr' ? '#000' : (themeMode === 'light' ? '#475569' : '#94A3B8'),
+                  border: 'none',
+                  borderRadius: '7px',
+                  padding: '4px 8px',
+                  fontSize: '11px',
+                  fontWeight: '800',
+                  cursor: 'pointer'
+                }}
+              >
+                मराठी
+              </button>
+              <button
+                onClick={() => setLanguage('hi')}
+                style={{
+                  background: language === 'hi' ? '#00D26A' : 'transparent',
+                  color: language === 'hi' ? '#000' : (themeMode === 'light' ? '#475569' : '#94A3B8'),
+                  border: 'none',
+                  borderRadius: '7px',
+                  padding: '4px 8px',
+                  fontSize: '11px',
+                  fontWeight: '800',
+                  cursor: 'pointer'
+                }}
+              >
+                हिंदी
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Navigation Menu Links */}
-        <nav style={{ padding: '20px 14px', flex: 1 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <nav style={{ padding: '16px 14px', flex: 1 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {menuItems.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -153,8 +252,8 @@ export const DrawerMenu = () => {
                     background: 'transparent',
                     border: 'none',
                     borderRadius: '12px',
-                    color: '#E2E8F0',
-                    fontSize: '15px',
+                    color: themeMode === 'light' ? '#1E293B' : '#E2E8F0',
+                    fontSize: '14px',
                     fontWeight: '600',
                     textAlign: 'left',
                     cursor: 'pointer',
@@ -166,7 +265,7 @@ export const DrawerMenu = () => {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = '#E2E8F0';
+                    e.currentTarget.style.color = themeMode === 'light' ? '#1E293B' : '#E2E8F0';
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
@@ -183,10 +282,10 @@ export const DrawerMenu = () => {
           <div 
             onClick={() => { navigateTo('showroom'); setIsDrawerOpen(false); }}
             style={{
-              marginTop: '24px',
+              marginTop: '20px',
               padding: '14px',
               background: 'rgba(0, 210, 106, 0.08)',
-              border: '1px solid rgba(0, 210, 106, 0.2)',
+              border: '1px solid rgba(0, 210, 106, 0.3)',
               borderRadius: '14px',
               cursor: 'pointer'
             }}
@@ -194,17 +293,17 @@ export const DrawerMenu = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#00D26A', fontSize: '12px', fontWeight: '700' }}>
               <Zap size={14} /> NK E-BIKE SHOWROOM
             </div>
-            <div style={{ fontSize: '13px', color: '#F1F5F9', marginTop: '4px', fontWeight: '600' }}>
+            <div style={{ fontSize: '13px', color: themeMode === 'light' ? '#0F172A' : '#F1F5F9', marginTop: '4px', fontWeight: '600' }}>
               Akole, Maharashtra
             </div>
-            <div style={{ fontSize: '11px', color: '#94A3B8', marginTop: '2px' }}>
+            <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>
               Open 9:00 AM - 8:00 PM
             </div>
           </div>
         </nav>
 
         {/* Drawer Bottom Actions */}
-        <div style={{ padding: '20px 24px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <div style={{ padding: '16px 20px', borderTop: themeMode === 'light' ? '1px solid #E2E8F0' : '1px solid rgba(255, 255, 255, 0.1)' }}>
           <button
             onClick={handleLogout}
             style={{
@@ -223,10 +322,11 @@ export const DrawerMenu = () => {
             }}
           >
             <LogOut size={18} />
-            <span>Logout</span>
+            <span>{t('logout')}</span>
           </button>
         </div>
       </div>
     </div>
   );
 };
+
