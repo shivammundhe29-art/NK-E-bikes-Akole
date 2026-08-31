@@ -10,7 +10,8 @@ export const BikeIllustration = ({
   const [imgError, setImgError] = useState(false);
 
   const modelKey = model.toLowerCase().replace('nk ', '').trim();
-  const imagePath = `./images/${modelKey}.jpg`;
+  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  const imagePath = `${baseUrl}images/${modelKey}.jpg`;
 
   if (!imgError) {
     return (
