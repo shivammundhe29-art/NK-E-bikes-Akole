@@ -134,7 +134,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Main Poster Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(0, 210, 106, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/posters/poster1_gtr_plus.png" 
+                src="./posters/poster1_gtr_plus.png" 
                 alt="NK GTR+ Poster - Price 51000" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
               />
@@ -260,7 +260,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Poster Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(249, 115, 22, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/posters/poster2_wolf20.jpg" 
+                src="./posters/poster2_wolf20.jpg" 
                 alt="NK Wolf 2.0 Poster - Price 78000" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
               />
@@ -346,7 +346,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(236, 72, 153, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/posters/poster3_wolf20_offer.png" 
+                src="./posters/poster3_wolf20_offer.png" 
                 alt="NK Wolf 2.0 Special Offer Poster - Price 78000" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
               />
@@ -428,7 +428,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(16, 185, 129, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/posters/poster4_aura_pro.jpg" 
+                src="./posters/poster4_aura_pro.jpg" 
                 alt="NK Aura Pro Poster - Price 75000" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
               />
@@ -510,7 +510,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
             {/* Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(234, 179, 8, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="/posters/poster5_double_light.png" 
+                src="./posters/poster5_double_light.png" 
                 alt="NK Double Light Poster - Price 48000" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
               />
