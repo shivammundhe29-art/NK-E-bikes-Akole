@@ -10,7 +10,7 @@ export const BikeIllustration = ({
   const [imgError, setImgError] = useState(false);
 
   let imagePath = model;
-  if (!model.startsWith('/') && !model.startsWith('http')) {
+  if (!model.includes('/') && !model.includes('.') && !model.startsWith('http')) {
     const modelKey = model.toLowerCase().replace('nk ', '').trim();
     const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
     imagePath = `${baseUrl}images/${modelKey}.jpg`;
