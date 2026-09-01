@@ -291,7 +291,7 @@ export const DrawerMenu = () => {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#00D26A', fontSize: '12px', fontWeight: '700' }}>
-              <Zap size={14} /> NK E-BIKE SHOWROOM
+              <img src="./logo.png" alt="NK E-BIKES" style={{ width: '24px', height: '24px', borderRadius: '50%', objectFit: 'contain' }} /> NK E-BIKE SHOWROOM
             </div>
             <div style={{ fontSize: '13px', color: themeMode === 'light' ? '#0F172A' : '#F1F5F9', marginTop: '4px', fontWeight: '600' }}>
               Akole, Maharashtra

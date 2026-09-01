@@ -84,22 +84,13 @@ export const Navbar = ({ title, showBack = false, onBack = null, isMobileView = 
           ) : (
             <div 
               onClick={() => navigateTo('home')} 
-              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
-              <div style={{
-                background: '#00D26A',
-                color: '#000',
-                borderRadius: '8px',
-                width: '28px',
-                height: '28px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: '900',
-                fontSize: '15px'
-              }}>
-                <Zap size={16} fill="#000" strokeWidth={0} />
-              </div>
+              <img 
+                src="./logo.png" 
+                alt="NK E-BIKES Logo" 
+                style={{ height: '36px', width: 'auto', borderRadius: '50%', objectFit: 'contain' }}
+              />
               <span style={{ fontSize: isMobileView ? '17px' : '19px', fontWeight: '900', letterSpacing: '-0.03em', color: '#0F172A' }}>
                 NK <span style={{ color: '#00D26A' }}>E-BIKE</span>
               </span>
