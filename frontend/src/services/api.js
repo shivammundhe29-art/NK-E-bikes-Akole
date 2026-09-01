@@ -4,33 +4,87 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api'
 export const INITIAL_BIKES = [
   {
     id: 1,
-    name: "NK GTR+",
+    name: "NK GTR+ ++",
     model_code: "NK-GTR-PLUS",
-    tagline: "India's First Waterproof Charger • Smart Wireless Controller",
+    tagline: "Smart. Stylish. Sustainable. • Designed for the future. Built for YOU.",
     price: 51000,
-    range_km: 110,
+    range_km: 90,
     top_speed_kmh: 60,
     battery_spec: "60V 32Ah / 60V 45AH VRLA & Li-Ion",
     charging_time: "3-7 Hours",
     motor_type: "10\" BLDC Hub Motor (IP67)",
     brake_type: "Front & Rear Disc / Drum",
     weight_kg: 82,
-    image_url: "./posters/poster1_gtr_plus.png",
-    poster_url: "./posters/poster1_gtr_plus.png",
-    color_options: ["#DC2626", "#000000", "#FFFFFF", "#64748B", "#008080"],
+    image_url: "./posters/poster6_gtr_plus2.png",
+    poster_url: "./posters/poster6_gtr_plus2.png",
+    color_options: ["#FFFFFF", "#000000", "#DC2626", "#64748B"],
     features: [
-      "Waterproof Throttle",
+      "Special Offer Price: ₹51,000",
+      "90 KM Range Per Charge",
+      "Waterproof Throttle & Fast Charging",
       "123 Gear Parking & Cruise Control",
       "NFC Card Lock & Keyless Entry",
-      "Reverse Gear & Anti-Theft Alarm",
-      "Bluetooth & Built-in Navigation",
-      "Regenerative Braking & Anti-Fire Fuse"
+      "Bluetooth & Built-in Navigation"
     ],
     is_popular: true,
     is_active: true
   },
   {
     id: 2,
+    name: "NK Loader",
+    model_code: "NK-LOADER-500KG",
+    tagline: "500 KG Heavy Duty Commercial Payload Capacity Loader",
+    price: 80000,
+    range_km: 110,
+    top_speed_kmh: 50,
+    battery_spec: "VRLA 60V32AH / 60V45AH / 72V32AH / 72V45AH",
+    charging_time: "3-7 Hours",
+    motor_type: "12\" Mid Drive Smart Motor (IP67)",
+    brake_type: "Front & Rear Disc Brakes",
+    weight_kg: 140,
+    image_url: "./posters/poster7_loader.png",
+    poster_url: "./posters/poster7_loader.png",
+    color_options: ["#000000"],
+    features: [
+      "500 KG Heavy Duty Payload Capacity",
+      "12\" Mid Drive Smart Motor (IP67 Waterproof)",
+      "60V / 72V Smart Wireless Controller",
+      "Dual Front & Rear Disc Brakes",
+      "3 Years Lithium / 1 Year Lead Acid Warranty",
+      "Reverse Gear, Anti-Theft Alarm & Heavy Duty Springs"
+    ],
+    is_popular: true,
+    is_active: true
+  },
+  {
+    id: 3,
+    name: "NK Sharvil",
+    model_code: "NK-SHARVIL",
+    tagline: "Smart Ride. Smart Choice. • Style, Performance & Reliability",
+    price: 71000,
+    range_km: 80,
+    top_speed_kmh: 55,
+    battery_spec: "Smart Lithium-Ion Pack",
+    charging_time: "3 Hours",
+    motor_type: "10\" BLDC Motor",
+    brake_type: "Combi Brake System (CBS)",
+    weight_kg: 78,
+    image_url: "./posters/poster8_sharvil.jpg",
+    poster_url: "./posters/poster8_sharvil.jpg",
+    color_options: ["#C0C0C0", "#000000", "#FFFFFF"],
+    features: [
+      "Special Offer Price: ₹71,000",
+      "3 Riding Modes: Eco, City, Turbo Mode",
+      "75-80+ KM Range Per Charge",
+      "1 Year Warranty on Motor, Controller & Frame",
+      "Sleek Aerodynamic Front Styling",
+      "High Lumens LED Headlamp & Digital Console"
+    ],
+    is_popular: true,
+    is_active: true
+  },
+  {
+    id: 4,
     name: "NK Wolf 2.0",
     model_code: "NK-WOLF-2.0",
     tagline: "Power bhi, Mileage bhi • 120+ Kms Single Charge",
@@ -58,7 +112,7 @@ export const INITIAL_BIKES = [
     is_active: true
   },
   {
-    id: 3,
+    id: 5,
     name: "NK Aura Pro",
     model_code: "NK-AURA-PRO",
     tagline: "Smart. Safe. Sustainable. • Your Everyday Electric Companion",
@@ -85,7 +139,7 @@ export const INITIAL_BIKES = [
     is_active: true
   },
   {
-    id: 4,
+    id: 6,
     name: "NK Double Light (Wolf)",
     model_code: "NK-DOUBLE-LIGHT",
     tagline: "Double Light. Double Power. Maximum Impact.",
@@ -107,31 +161,6 @@ export const INITIAL_BIKES = [
       "12\" Front Wheel Rim",
       "12 Months Warranty",
       "Waterproof Throttle & Cruise Control"
-    ],
-    is_popular: false,
-    is_active: true
-  },
-  {
-    id: 5,
-    name: "NK Bravo",
-    model_code: "NK-BRAVO-72V",
-    tagline: "Maximum Power, Superior Long-Distance Comfort",
-    price: 109999,
-    range_km: 150,
-    top_speed_kmh: 60,
-    battery_spec: "72V 32Ah",
-    charging_time: "3.5 Hours",
-    motor_type: "2500W High Torque BLDC Motor",
-    brake_type: "Front & Rear Disc Brakes",
-    weight_kg: 88,
-    image_url: "bravo",
-    color_options: ["#00D26A", "#111827", "#DC2626", "#E2E8F0"],
-    features: [
-      "Powerful BLDC Motor",
-      "Fast Charging",
-      "Digital Display",
-      "Anti Theft Alarm",
-      "Regenerative Braking System"
     ],
     is_popular: false,
     is_active: true

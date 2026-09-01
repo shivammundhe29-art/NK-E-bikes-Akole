@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Zap, ShieldCheck, Sparkles, Phone, MessageSquare, Calendar, Award, Disc, Battery, Compass, CheckCircle2, Tag } from 'lucide-react';
+import { ArrowLeft, Zap, ShieldCheck, Sparkles, Phone, MessageSquare, Calendar, Award, Disc, Battery, Compass, CheckCircle2, Tag, Truck } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export const PostersScreen = ({ isMobileView = false }) => {
   const { navigateTo } = useApp();
-  const [activeTab, setActiveTab] = useState('gtr'); // 'gtr', 'wolf20', 'wolf20_offer', 'aura', 'double_light'
+  const [activeTab, setActiveTab] = useState('gtr2'); // 'gtr2', 'loader', 'sharvil', 'wolf20', 'aura', 'double_light'
 
   const hasePhone1 = "7875493982";
   const hasePhone2 = "9975983387";
@@ -15,9 +15,10 @@ export const PostersScreen = ({ isMobileView = false }) => {
   };
 
   const posterTabs = [
-    { id: 'gtr', label: '⚡ GTR+ (₹51,000)', price: '51,000' },
-    { id: 'wolf20', label: '🐺 WOLF 2.0 SMART (₹78,000)', price: '78,000' },
-    { id: 'wolf20_offer', label: '🔥 WOLF 2.0 OFFER (₹78,000)', price: '78,000' },
+    { id: 'gtr2', label: '⚡ GTR PLUS ++ (₹51,000)', price: '51,000' },
+    { id: 'loader', label: '🚚 NK LOADER (₹80,000)', price: '80,000' },
+    { id: 'sharvil', label: '⚡ SHARVIL (₹71,000)', price: '71,000' },
+    { id: 'wolf20', label: '🐺 WOLF 2.0 (₹78,000)', price: '78,000' },
     { id: 'aura', label: '🛵 AURA PRO (₹75,000)', price: '75,000' },
     { id: 'double_light', label: '💡 DOUBLE LIGHT (₹48,000)', price: '48,000' }
   ];
@@ -96,50 +97,42 @@ export const PostersScreen = ({ isMobileView = false }) => {
       <div style={{ maxWidth: '1100px', width: '100%', margin: '0 auto', padding: '24px 16px', flex: 1, boxSizing: 'border-box' }}>
 
         {/* ==================================================== */}
-        {/* POSTER 1: NK GTR+ (₹51,000/-) */}
+        {/* POSTER 1: GTR PLUS ++ (₹51,000/-) */}
         {/* ==================================================== */}
-        {activeTab === 'gtr' && (
+        {activeTab === 'gtr2' && (
           <div style={{
             background: 'linear-gradient(145deg, #121824 0%, #09131C 100%)',
             borderRadius: '32px',
-            border: '2px solid rgba(0, 210, 106, 0.4)',
+            border: '2px solid rgba(255, 102, 0, 0.4)',
             boxShadow: '0 25px 60px rgba(0,0,0,0.6)',
             padding: '32px',
-            position: 'relative',
-            overflow: 'hidden'
+            position: 'relative'
           }}>
-            {/* Header Badge */}
             <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0, 210, 106, 0.15)', color: '#00D26A', padding: '8px 20px', borderRadius: '30px', fontSize: '13px', fontWeight: '900', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
-                <Zap size={18} fill="#00D26A" /> OFFICIAL MODEL POSTER
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255, 102, 0, 0.15)', color: '#FF6600', padding: '8px 20px', borderRadius: '30px', fontSize: '13px', fontWeight: '900', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
+                <Zap size={18} fill="#FF6600" /> OFFICIAL MODEL POSTER
               </div>
               <h1 style={{ fontSize: '42px', fontWeight: '900', color: '#FFFFFF', letterSpacing: '1px', margin: '0 0 8px' }}>
-                NK'S <span style={{ color: '#00D26A' }}>GTR+</span>
+                GTR <span style={{ color: '#FF6600' }}>PLUS ++</span>
               </h1>
               <p style={{ fontSize: '15px', color: '#94A3B8', fontWeight: '700', letterSpacing: '2px' }}>
-                INDIA'S FIRST WATERPROOF CHARGER • SMART WIRELESS CONTROLLER
+                SMART. STYLISH. SUSTAINABLE. • DESIGNED FOR THE FUTURE. BUILT FOR YOU.
               </p>
             </div>
 
-            {/* Price Tag Highlight */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
-              <span style={{ background: 'linear-gradient(135deg, #00D26A 0%, #00B359 100%)', color: '#000', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(0,210,106,0.3)' }}>
+              <span style={{ background: 'linear-gradient(135deg, #FF6600 0%, #CC5200 100%)', color: '#FFF', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(255,102,0,0.3)' }}>
                 PRICE: ₹ 51,000/-*
-              </span>
-              <span style={{ background: 'rgba(255,255,255,0.08)', color: '#FFF', padding: '10px 24px', borderRadius: '30px', fontSize: '14px', fontWeight: '700', border: '1px solid rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Tag size={16} color="#00D26A" /> ALL TYPE FINANCE AVAILABLE
               </span>
             </div>
 
-            {/* Main Poster Image */}
-            <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(0, 210, 106, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
+            <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(255, 102, 0, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
-                src="./posters/poster1_gtr_plus.png" 
-                alt="NK GTR+ Poster - Price 51000" 
+                src="./posters/poster6_gtr_plus2.png" 
+                alt="GTR Plus ++ Poster - Price 51000" 
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
               />
 
-              {/* Floating Action Buttons over Image */}
               <div style={{
                 position: 'absolute',
                 bottom: '20px',
@@ -151,71 +144,34 @@ export const PostersScreen = ({ isMobileView = false }) => {
                 backdropFilter: 'blur(12px)',
                 padding: '12px 20px',
                 borderRadius: '30px',
-                border: '1px solid rgba(0, 210, 106, 0.4)',
+                border: '1px solid rgba(255, 102, 0, 0.4)',
                 flexWrap: 'wrap',
                 justifyContent: 'center'
               }}>
-                <a
-                  href={getWaLink("NK GTR+", hasePhone1, "51,000")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ background: '#25D366', color: '#000', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
-                >
-                  💬 Inquire WhatsApp
+                <a href={getWaLink("GTR PLUS ++", hasePhone1, "51,000")} target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: '#000', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
+                  💬 WhatsApp Inquiry
                 </a>
-                <a
-                  href={`tel:+91${hasePhone1}`}
-                  style={{ background: '#00D26A', color: '#000', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
-                >
+                <a href={`tel:+91${hasePhone1}`} style={{ background: '#FF6600', color: '#FFF', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
                   📞 Call Hase Brother's
                 </a>
-                <button
-                  onClick={() => navigateTo('test-ride')}
-                  style={{ background: '#38BDF8', color: '#000', border: 'none', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
-                >
+                <button onClick={() => navigateTo('test-ride')} style={{ background: '#38BDF8', color: '#000', border: 'none', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', cursor: 'pointer' }}>
                   📅 Book Test Ride
                 </button>
               </div>
             </div>
 
-            {/* Poster Features Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', marginBottom: '32px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(0, 210, 106, 0.2)', padding: '18px', borderRadius: '20px', textAlign: 'center' }}>
-                <Compass size={28} color="#00D26A" style={{ marginBottom: '8px' }} />
-                <div style={{ fontSize: '18px', fontWeight: '900', color: '#FFF' }}>70-110 KM</div>
-                <div style={{ fontSize: '12px', color: '#94A3B8', fontWeight: '700' }}>RANGE PER CHARGE</div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(0, 210, 106, 0.2)', padding: '18px', borderRadius: '20px', textAlign: 'center' }}>
-                <Zap size={28} color="#00D26A" style={{ marginBottom: '8px' }} />
-                <div style={{ fontSize: '18px', fontWeight: '900', color: '#FFF' }}>IP67 MOTOR</div>
-                <div style={{ fontSize: '12px', color: '#94A3B8', fontWeight: '700' }}>10" BLDC HUB MOTOR</div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(0, 210, 106, 0.2)', padding: '18px', borderRadius: '20px', textAlign: 'center' }}>
-                <Battery size={28} color="#00D26A" style={{ marginBottom: '8px' }} />
-                <div style={{ fontSize: '18px', fontWeight: '900', color: '#FFF' }}>VRLA / LITHIUM</div>
-                <div style={{ fontSize: '12px', color: '#94A3B8', fontWeight: '700' }}>60V32AH / 60V25AH</div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(0, 210, 106, 0.2)', padding: '18px', borderRadius: '20px', textAlign: 'center' }}>
-                <ShieldCheck size={28} color="#00D26A" style={{ marginBottom: '8px' }} />
-                <div style={{ fontSize: '18px', fontWeight: '900', color: '#FFF' }}>3 YRS WARRANTY</div>
-                <div style={{ fontSize: '12px', color: '#94A3B8', fontWeight: '700' }}>LITHIUM ION BATTERY</div>
-              </div>
-            </div>
-
-            {/* Bottom Actions */}
             <div style={{ background: '#090D14', border: '1px solid #1F293D', borderRadius: '24px', padding: '24px', textAlign: 'center' }}>
-              <div style={{ fontSize: '20px', fontWeight: '900', color: '#00D26A', marginBottom: '6px' }}>
-                NK GTR+ Special Offer Price: ₹ 51,000/-
+              <div style={{ fontSize: '20px', fontWeight: '900', color: '#FF6600', marginBottom: '6px' }}>
+                GTR PLUS ++ Offer Price: ₹ 51,000/-
               </div>
               <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
-                Contact Hase Brother's for booking near Agasti College, Akole!
+                Contact Hase Brother's near Agasti College, Akole!
               </p>
-
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px' }}>
+                <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#FF6600', color: '#FFF' }}>
                   <Phone size={16} /> Call {hasePhone1}
                 </a>
-                <a href={getWaLink("NK GTR+", hasePhone1, "51,000")} target="_blank" rel="noopener noreferrer" className="btn-outline-electric" style={{ padding: '12px 24px', fontSize: '14px', borderColor: '#25D366', color: '#25D366' }}>
+                <a href={getWaLink("GTR PLUS ++", hasePhone1, "51,000")} target="_blank" rel="noopener noreferrer" className="btn-outline-electric" style={{ padding: '12px 24px', fontSize: '14px', borderColor: '#25D366', color: '#25D366' }}>
                   <MessageSquare size={16} /> WhatsApp Inquiry
                 </a>
               </div>
@@ -224,7 +180,173 @@ export const PostersScreen = ({ isMobileView = false }) => {
         )}
 
         {/* ==================================================== */}
-        {/* POSTER 2: NK WOLF 2.0 SMART (₹78,000/-) */}
+        {/* POSTER 2: NK'S LOADER 500KG (₹80,000/-) */}
+        {/* ==================================================== */}
+        {activeTab === 'loader' && (
+          <div style={{
+            background: 'linear-gradient(145deg, #1F0B0B 0%, #090D14 100%)',
+            borderRadius: '32px',
+            border: '2px solid rgba(220, 38, 38, 0.4)',
+            boxShadow: '0 25px 60px rgba(0,0,0,0.6)',
+            padding: '32px',
+            position: 'relative'
+          }}>
+            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(220, 38, 38, 0.15)', color: '#EF4444', padding: '8px 20px', borderRadius: '30px', fontSize: '13px', fontWeight: '900', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
+                <Truck size={18} color="#EF4444" /> HEAVY DUTY COMMERCIAL LOADER
+              </div>
+              <h1 style={{ fontSize: '42px', fontWeight: '900', color: '#FFFFFF', margin: '0 0 8px' }}>
+                NK'S <span style={{ color: '#EF4444' }}>LOADER (500 KG)</span>
+              </h1>
+              <p style={{ fontSize: '15px', color: '#FCA5A5', fontWeight: '700' }}>
+                12" MID DRIVE SMART MOTOR (IP67) • 60/72V SMART WIRELESS CONTROLLER
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
+              <span style={{ background: 'linear-gradient(135deg, #DC2626 0%, #991B1B 100%)', color: '#FFF', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(220,38,38,0.3)' }}>
+                PRICE: ₹ 80,000/-*
+              </span>
+              <span style={{ background: 'rgba(255,255,255,0.08)', color: '#FFF', padding: '10px 24px', borderRadius: '30px', fontSize: '14px', fontWeight: '700', border: '1px solid rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Tag size={16} color="#EF4444" /> PAYLOAD CAPACITY: 500 KG
+              </span>
+            </div>
+
+            <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(220, 38, 38, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
+              <img 
+                src="./posters/poster7_loader.png" 
+                alt="NK Loader Poster - Price 80000" 
+                style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
+              />
+
+              <div style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                gap: '12px',
+                background: 'rgba(9, 13, 20, 0.90)',
+                backdropFilter: 'blur(12px)',
+                padding: '12px 20px',
+                borderRadius: '30px',
+                border: '1px solid rgba(220, 38, 38, 0.4)',
+                flexWrap: 'wrap',
+                justifyContent: 'center'
+              }}>
+                <a href={getWaLink("NK Loader", hasePhone1, "80,000")} target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: '#000', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
+                  💬 WhatsApp Inquiry
+                </a>
+                <a href={`tel:+91${hasePhone1}`} style={{ background: '#DC2626', color: '#FFF', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
+                  📞 Call Hase Brother's
+                </a>
+              </div>
+            </div>
+
+            <div style={{ background: '#090D14', border: '1px solid #1F293D', borderRadius: '24px', padding: '24px', textAlign: 'center' }}>
+              <div style={{ fontSize: '20px', fontWeight: '900', color: '#EF4444', marginBottom: '6px' }}>
+                NK Loader Price: ₹ 80,000/-
+              </div>
+              <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
+                Heavy Duty Cargo Carriage • 3 Yrs Lithium / 1 Yr Lead Warranty
+              </p>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#DC2626', color: '#FFF' }}>
+                  <Phone size={16} /> Call 7875493982
+                </a>
+                <a href={getWaLink("NK Loader", hasePhone2, "80,000")} target="_blank" rel="noopener noreferrer" className="btn-outline-electric" style={{ padding: '12px 24px', fontSize: '14px', borderColor: '#25D366', color: '#25D366' }}>
+                  <MessageSquare size={16} /> WhatsApp Inquiry
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================== */}
+        {/* POSTER 3: SHARVIL ELECTRIC BIKE (₹71,000/-) */}
+        {/* ==================================================== */}
+        {activeTab === 'sharvil' && (
+          <div style={{
+            background: 'linear-gradient(145deg, #0B1D12 0%, #090D14 100%)',
+            borderRadius: '32px',
+            border: '2px solid rgba(16, 185, 129, 0.4)',
+            boxShadow: '0 25px 60px rgba(0,0,0,0.6)',
+            padding: '32px',
+            position: 'relative'
+          }}>
+            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.15)', color: '#10B981', padding: '8px 20px', borderRadius: '30px', fontSize: '13px', fontWeight: '900', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
+                ⚡ SMART RIDE • SMART CHOICE
+              </div>
+              <h1 style={{ fontSize: '42px', fontWeight: '900', color: '#FFFFFF', margin: '0 0 8px' }}>
+                NK <span style={{ color: '#10B981' }}>SHARVIL</span>
+              </h1>
+              <p style={{ fontSize: '15px', color: '#A7F3D0', fontWeight: '700' }}>
+                3 RIDING MODES: ECO • CITY • TURBO | RANGE: 75-80+ KM
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
+              <span style={{ background: 'linear-gradient(135deg, #10B981 0%, #047857 100%)', color: '#FFF', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(16,185,129,0.3)' }}>
+                PRICE: ₹ 71,000/-*
+              </span>
+            </div>
+
+            <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(16, 185, 129, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
+              <img 
+                src="./posters/poster8_sharvil.jpg" 
+                alt="Sharvil Poster - Price 71000" 
+                style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
+              />
+
+              <div style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                gap: '12px',
+                background: 'rgba(9, 13, 20, 0.90)',
+                backdropFilter: 'blur(12px)',
+                padding: '12px 20px',
+                borderRadius: '30px',
+                border: '1px solid rgba(16, 185, 129, 0.4)',
+                flexWrap: 'wrap',
+                justifyContent: 'center'
+              }}>
+                <a href={getWaLink("NK Sharvil", hasePhone1, "71,000")} target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: '#000', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
+                  💬 WhatsApp Inquiry
+                </a>
+                <a href={`tel:+91${hasePhone1}`} style={{ background: '#10B981', color: '#FFF', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
+                  📞 Call Hase Brother's
+                </a>
+                <button onClick={() => navigateTo('test-ride')} style={{ background: '#38BDF8', color: '#000', border: 'none', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', cursor: 'pointer' }}>
+                  📅 Book Test Ride
+                </button>
+              </div>
+            </div>
+
+            <div style={{ background: '#090D14', border: '1px solid #1F293D', borderRadius: '24px', padding: '24px', textAlign: 'center' }}>
+              <div style={{ fontSize: '20px', fontWeight: '900', color: '#10B981', marginBottom: '6px' }}>
+                NK Sharvil Price: ₹ 71,000/-
+              </div>
+              <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
+                1 Year Warranty on Motor, Controller & Frame
+              </p>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#10B981', color: '#FFF' }}>
+                  <Phone size={16} /> Call 7875493982
+                </a>
+                <a href={getWaLink("NK Sharvil", hasePhone2, "71,000")} target="_blank" rel="noopener noreferrer" className="btn-outline-electric" style={{ padding: '12px 24px', fontSize: '14px', borderColor: '#25D366', color: '#25D366' }}>
+                  <MessageSquare size={16} /> WhatsApp Inquiry
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================== */}
+        {/* POSTER 4: NK WOLF 2.0 (₹78,000/-) */}
         {/* ==================================================== */}
         {activeTab === 'wolf20' && (
           <div style={{
@@ -247,17 +369,12 @@ export const PostersScreen = ({ isMobileView = false }) => {
               </p>
             </div>
 
-            {/* Price Banner */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
               <span style={{ background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)', color: '#FFF', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(249,115,22,0.3)' }}>
                 PRICE: ₹ 78,000/-*
               </span>
-              <span style={{ background: 'rgba(255,255,255,0.08)', color: '#FFF', padding: '10px 24px', borderRadius: '30px', fontSize: '14px', fontWeight: '700', border: '1px solid rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <CheckCircle2 size={16} color="#F97316" /> GRAPHENE BATTERY & APP NAVIGATION
-              </span>
             </div>
 
-            {/* Poster Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(249, 115, 22, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
                 src="./posters/poster2_wolf20.jpg" 
@@ -286,21 +403,14 @@ export const PostersScreen = ({ isMobileView = false }) => {
                 <a href={`tel:+91${hasePhone2}`} style={{ background: '#F97316', color: '#FFF', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
                   📞 Call 9975983387
                 </a>
-                <button onClick={() => navigateTo('test-ride')} style={{ background: '#38BDF8', color: '#000', border: 'none', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', cursor: 'pointer' }}>
-                  📅 Book Test Ride
-                </button>
               </div>
             </div>
 
-            {/* Bottom Actions */}
             <div style={{ background: '#090D14', border: '1px solid #1F293D', borderRadius: '24px', padding: '24px', textAlign: 'center' }}>
               <div style={{ fontSize: '20px', fontWeight: '900', color: '#F97316', marginBottom: '6px' }}>
                 NK WOLF 2.0 Offer Price: ₹ 78,000/-
               </div>
-              <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
-                Hase Brother's • Near Agasti College, Akole • Contact: 7875493982 / 9975983387
-              </p>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '16px' }}>
                 <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#F97316', color: '#FFF' }}>
                   <Phone size={16} /> Call Hase Brother's
                 </a>
@@ -313,89 +423,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
         )}
 
         {/* ==================================================== */}
-        {/* POSTER 3: NK WOLF 2.0 SPECIAL OFFER (₹78,000/-) */}
-        {/* ==================================================== */}
-        {activeTab === 'wolf20_offer' && (
-          <div style={{
-            background: 'linear-gradient(145deg, #1C0F19 0%, #090D14 100%)',
-            borderRadius: '32px',
-            border: '2px solid rgba(236, 72, 153, 0.4)',
-            boxShadow: '0 25px 60px rgba(0,0,0,0.6)',
-            padding: '32px',
-            position: 'relative'
-          }}>
-            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(236, 72, 153, 0.15)', color: '#F472B6', padding: '8px 20px', borderRadius: '30px', fontSize: '13px', fontWeight: '900', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
-                🔥 SPECIAL OFFER POSTER
-              </div>
-              <h1 style={{ fontSize: '42px', fontWeight: '900', color: '#FFFFFF', margin: '0 0 8px' }}>
-                NK WOLF <span style={{ color: '#F472B6' }}>2.0 OFFER</span>
-              </h1>
-              <p style={{ fontSize: '15px', color: '#94A3B8', fontWeight: '700' }}>
-                RANGE: 90-100+ KMS • 12 MONTHS WARRANTY (BATTERY, MOTOR, CHARGER, CONTROLLER)
-              </p>
-            </div>
-
-            {/* Price Badge */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
-              <span style={{ background: 'linear-gradient(135deg, #EC4899 0%, #DB2777 100%)', color: '#FFF', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(236,72,153,0.3)' }}>
-                SPECIAL OFFER PRICE: ₹ 78,000/-*
-              </span>
-            </div>
-
-            {/* Image */}
-            <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(236, 72, 153, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
-              <img 
-                src="./posters/poster3_wolf20_offer.png" 
-                alt="NK Wolf 2.0 Special Offer Poster - Price 78000" 
-                style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '580px', objectFit: 'contain', background: '#05070B' }}
-              />
-
-              <div style={{
-                position: 'absolute',
-                bottom: '20px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                display: 'flex',
-                gap: '12px',
-                background: 'rgba(9, 13, 20, 0.90)',
-                backdropFilter: 'blur(12px)',
-                padding: '12px 20px',
-                borderRadius: '30px',
-                border: '1px solid rgba(236, 72, 153, 0.4)',
-                flexWrap: 'wrap',
-                justifyContent: 'center'
-              }}>
-                <a href={getWaLink("NK Wolf 2.0 Offer", hasePhone1, "78,000")} target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: '#000', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
-                  💬 WhatsApp Inquiry
-                </a>
-                <a href={`tel:+91${hasePhone1}`} style={{ background: '#EC4899', color: '#FFF', padding: '8px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>
-                  📞 Call 7875493982
-                </a>
-              </div>
-            </div>
-
-            <div style={{ background: '#090D14', border: '1px solid #1F293D', borderRadius: '24px', padding: '24px', textAlign: 'center' }}>
-              <div style={{ fontSize: '20px', fontWeight: '900', color: '#F472B6', marginBottom: '6px' }}>
-                Updated Special Offer Price: ₹ 78,000/-
-              </div>
-              <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
-                Colors Available: Black • White • Orange
-              </p>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#EC4899' }}>
-                  <Phone size={16} /> Call 7875493982
-                </a>
-                <a href={getWaLink("NK Wolf 2.0 Offer", hasePhone2, "78,000")} target="_blank" rel="noopener noreferrer" className="btn-outline-electric" style={{ padding: '12px 24px', fontSize: '14px', borderColor: '#25D366', color: '#25D366' }}>
-                  <MessageSquare size={16} /> WhatsApp Inquiry (9975983387)
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ==================================================== */}
-        {/* POSTER 4: NK AURA PRO (₹75,000/-) */}
+        {/* POSTER 5: NK AURA PRO (₹75,000/-) */}
         {/* ==================================================== */}
         {activeTab === 'aura' && (
           <div style={{
@@ -418,14 +446,12 @@ export const PostersScreen = ({ isMobileView = false }) => {
               </p>
             </div>
 
-            {/* Price Tag */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
               <span style={{ background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)', color: '#FFF', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(16,185,129,0.3)' }}>
                 SPECIAL OFFER PRICE: ₹ 75,000/-*
               </span>
             </div>
 
-            {/* Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(16, 185, 129, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
                 src="./posters/poster4_aura_pro.jpg" 
@@ -461,10 +487,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
               <div style={{ fontSize: '20px', fontWeight: '900', color: '#10B981', marginBottom: '6px' }}>
                 NK Aura Pro Price: ₹ 75,000/-
               </div>
-              <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
-                Colors: Black • White • Milky White | 12 Months Complete Warranty
-              </p>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '16px' }}>
                 <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#10B981' }}>
                   <Phone size={16} /> Call 7875493982
                 </a>
@@ -477,7 +500,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
         )}
 
         {/* ==================================================== */}
-        {/* POSTER 5: NK DOUBLE LIGHT (WOLF) (₹48,000/-) */}
+        {/* POSTER 6: NK DOUBLE LIGHT (WOLF) (₹48,000/-) */}
         {/* ==================================================== */}
         {activeTab === 'double_light' && (
           <div style={{
@@ -500,14 +523,12 @@ export const PostersScreen = ({ isMobileView = false }) => {
               </p>
             </div>
 
-            {/* Price Badge */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '28px' }}>
               <span style={{ background: 'linear-gradient(135deg, #FACC15 0%, #EAB308 100%)', color: '#000', padding: '10px 28px', borderRadius: '30px', fontSize: '22px', fontWeight: '900', boxShadow: '0 8px 20px rgba(234,179,8,0.3)' }}>
                 SPECIAL OFFER PRICE: ₹ 48,000/-*
               </span>
             </div>
 
-            {/* Image */}
             <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '32px', border: '1px solid rgba(234, 179, 8, 0.3)', boxShadow: '0 15px 35px rgba(0,0,0,0.5)' }}>
               <img 
                 src="./posters/poster5_double_light.png" 
@@ -543,10 +564,7 @@ export const PostersScreen = ({ isMobileView = false }) => {
               <div style={{ fontSize: '20px', fontWeight: '900', color: '#FACC15', marginBottom: '6px' }}>
                 NK Double Light (Wolf) Offer Price: ₹ 48,000/-
               </div>
-              <p style={{ fontSize: '13px', color: '#94A3B8', marginBottom: '20px' }}>
-                10" BLDC Motor • 12" Front Tyre • Colors: Black, White, Milky White
-              </p>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '16px' }}>
                 <a href={`tel:+91${hasePhone1}`} className="btn-electric" style={{ padding: '12px 24px', fontSize: '14px', background: '#FACC15', color: '#000' }}>
                   <Phone size={16} /> Call 7875493982
                 </a>
